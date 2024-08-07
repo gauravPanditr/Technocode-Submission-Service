@@ -1,10 +1,8 @@
 const fastify=require('fastify')({logger :true})
-
+const app=require('./app');
 const PORT=3000
 
-fastify.get('/ping',(req,res)=>{
-    res.send({data:'ping'})
-});
+fastify.register(app);
 
 fastify.listen({port:PORT},(err)=>{
     if(err){
